@@ -1,4 +1,4 @@
-'use strict';   // Mode strict du JavaScript
+'use strict';
 /*************************************************************************************************/
 /* **************************************** DONNEES JEU **************************************** */
 /*************************************************************************************************/
@@ -14,7 +14,6 @@ let gameRound = 1;
 /* *************************************** FONCTIONS JEU *************************************** */
 /*************************************************************************************************/
 function chooseDifficulty() {
-    // Prompt the user to choose the difficulty level
     return requestInteger("Choisissez la difficulté du level: \n1-facile \n2-normal \n3-difficile", 1, 3);
 }
 
@@ -113,7 +112,7 @@ function displayGameJournal(attacker, damage) {
     document.write(`</figure>`);
     document.write(`<figure class="game-state_player">`);
     if (dragonHealth > 0) {
-        if (dragonHealth < initialDragonHealth * 0.30) { // Utilisation des points de vie initiaux
+        if (dragonHealth < initialDragonHealth * 0.30) { 
             document.write(`<img src="images/dragon-wounded.png" alt="Dragon">`);
             document.write(`<figcaption><progress max="${initialDragonHealth}" value="${dragonHealth}"> </progress> ${dragonHealth} PV</figcaption>`);
         } else if (playerHealth <= 0) {
@@ -163,9 +162,9 @@ function main() {
     difficulty = chooseDifficulty();
     console.log(`Niveau de difficulté choisi: ${difficulty}`);
     initialDragonHealth = getInitialHealth(difficulty, "dragon");
-    dragonHealth = initialDragonHealth; // Stockage des points de vie initiaux
+    dragonHealth = initialDragonHealth; 
     initialPlayerHealth = getInitialHealth(difficulty, "player");
-    playerHealth = initialPlayerHealth; // Stockage des points de vie initiaux
+    playerHealth = initialPlayerHealth; 
 
     while (playerHealth > 0 && dragonHealth > 0) {
         initiative();
